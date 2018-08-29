@@ -6,9 +6,7 @@
  
     public function index() {
 
-      
-
-      $this->view('pages/index', ['title' => 'welcome']);
+      $this->view('pages/index', ['title' => 'Bienvenue sur mon site']);
     }
 
     public function about() {

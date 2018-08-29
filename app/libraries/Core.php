@@ -32,8 +32,7 @@
         //check if method exists in controller
         if(method_exists($this->currentController, $url[1])) {
           $this->currentMethod = $url[1];
-          
-          
+    
           unset($url[1]);
         }
       }
