@@ -27,25 +27,25 @@
         ];
 
         if(empty($data['email'])) {
-          $data['email_err'] = 'Entrez une adresse mail SVP';
+          $data['email_err'] = 'please enter email';
         } else {
           if($this->userModel->findUserbyEmail($data['email'])) {
-            $data['email_err'] = 'Email déjà pris';
+            $data['email_err'] = 'email already taken';
           }
         }
 
         if(empty($data['name'])) {
-          $data['name_err'] = 'Entrez un nom SVP';
+          $data['name_err'] = 'please enter name';
         }
 
         if(empty($data['password'])) {
-          $data['password_err'] = 'Entrez un mot de passe SVP';
+          $data['password_err'] = 'please enter password';
         } elseif(strlen($data['password']) < 6) {
-            $data['password_err'] = 'Entrez un mot de passe avec au moins 6 caractères';
+            $data['password_err'] = 'password at least 6 chars';
         }
 
         if(empty($data['confirm_password'])) {
-          $data['confirm_password_err'] = 'Confirmez votre mot de passe SVP';
+          $data['confirm_password_err'] = 'please enter confirm password';
         } else {
           if($data['password'] != $data['confirm_password']) {
             $data['confirm_password_err'] = 'passwords do not match';
@@ -60,7 +60,7 @@
 
           //register user
           if($this->userModel->register($data)) {
-            flash('register_success', 'Vous êtes enregistré(e) et pouvez vous connecter');
+            flash('register_success', 'You are registered and can log in');
             redirect('users/login'); //fonction redirect dans url_helper.php
           } else {
             die('something went wrong');
@@ -103,7 +103,7 @@
         ];
 
         if(empty($data['email'])) {
-          $data['email_err'] = 'Entrez votre mail SVP';
+          $data['email_err'] = 'please enter email';
         }
 
         //check user/email
@@ -111,13 +111,13 @@
           //user found
         } else {
           //user not found
-          $data['email_err'] = 'Utilisateur no trouvé';
+          $data['email_err'] = 'no user found';
         }
 
         if(empty($data['password'])) {
-          $data['password_err'] = 'Entrez votre mot de passe SVP';
+          $data['password_err'] = 'please enter password';
         } elseif(strlen($data['password']) < 6) {
-            $data['password_err'] = 'Entrez un mot de passe avec au moins 6 caractères';
+            $data['password_err'] = 'password at least 6 chars';
         }
 
         //check errors are empty
